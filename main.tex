@@ -1,0 +1,326 @@
+\documentclass{beamer}
+\usepackage{header/packages}
+
+%gets rid of bottom navigation symbols
+%\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+%\setbeamertemplate{footline}{}
+
+% Tác giả, Tiêu đề, vân vân
+\title[]{{\huge \bf Graduation Thesis} \\
+\large Run length limited de Bruijn sequences for quantum communication}
+\author[Nguyen Tien Long]{
+Nguyen Tien Long, CTTN-CNTT-K63% \inst{1} 
+}
+
+\institute[]{
+%\inst{1}% 
+Computer Science Department\\
+School of Information and Communication Technology.
+}
+
+
+
+% \logo{\includegraphics[scale=0.05]{BVP-logo bk-rgb.jpg} \vspace{220pt}}
+\pgfplotsset{compat=1.18}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Motivation}
+\input{sections/motivation}
+
+\section{Run length limited de Bruijn sequence - Graph Presentation}
+\input{sections/RdB}
+
+\section{Rate and Maximal Asymptotic Rate}
+\input{sections/rate}
+\section{Encoding and Decoding Algorithm}
+\input{sections/construction}
+
+\section{Conclusion}
+\input{sections/conclusion}
+
+% \begin{frame}{Nội dung}
+% \tableofcontents
+% \end{frame}
+
+% \section{Lý thuyết}
+% \subsection{Định lý thặng dư Trung Hoa}
+% \subsection{Thuật toán Sàng Eratosthenes}
+
+% \section{Bài toán RemainderGame}
+% \subsection{Phát biểu}
+% \subsection{Yêu cầu}
+% \section{Thuật toán đề xuất}
+% \subsection{Trình bày giải thuật}
+% \subsection{Tính đúng đắn của giải thuật}
+% \subsection{Phân tích source code}
+% \subsection{Demo chương trình/kết quả: chụp ảnh kết quả chạy online, Themis}
+% \subsection{Mở rộng bài toán}
+% \section*{Tài liệu tham khảo}
+
+% % TODO: Book
+% \begin{frame}{Tài liệu tham khảo}
+%     \vspace{20pt}
+
+%     \bi
+%         \item {\color{hilight}[Tutorial] Chinese Remainder Theorem}\\\url{https://codeforces.com/blog/entry/61290}
+%         \item  {\color{hilight}Chinese Remainder Theorem}
+%         \\ \url{https://cp-algorithms.com/algebra/chinese-remainder-theorem.html}
+%         \vspace{10pt}
+%         \item {\color{hilight}Divergence of the sum of the reciprocals of the primes}\\\url{https://en.wikipedia.org/wiki/Divergence_of_the_sum_of_the_reciprocals_of_the_primes}
+%     \ei
+% \end{frame}
+
+
+% % TODO: What kind of problems we're dealing with: description/input/output
+% \begin{frame}{Định lý thặng dư Trung Hoa}
+%     \bi
+%         \item Nguồn gốc\\
+%         Xuất phát từ bài bài toán Hàn Tín điểm binh
+%         \begin{center}
+%             \includegraphics[scale=0.5]{Slide/Hantindiembinh.png}
+%         \end{center}
+%     \ei
+% \end{frame}
+
+% % TODO: Example problems/solutions
+% \begin{frame}{Định lý thặng dư Trung Hoa}
+% \bi
+%     \item Nguồn gốc
+%     \item Phát biểu
+%     \\Định lý Thặng dư Trung Hoa giải quyết vấn đề về sự tồn tại nghiệm của bài toán sau:
+%     \\\textit{Dạng 2 số : } Cho 2 cặp số nguyên $(a_{1},n_{1})$ và $(a_{2},n_{2})$.Tìm số nguyên $x$ thoả mãn :
+%   \begin{center}
+% $\left\{
+%     \begin{matrix}
+%     x \equiv a_{1}\ (mod\ n_{1}\ ) \\
+%     x \equiv a_{2}\ (mod\ n_{2}\ )
+%     \end{matrix}
+% \right.$
+% \end{center}
+
+% \ei 
+% \end{frame}
+
+% \begin{frame}{Định lý thặng dư Trung Hoa}
+% \bi
+%     \item Nguồn gốc
+%     \item Phát biểu
+%     \\Định lý Thặng dư Trung Hoa giải quyết vấn đề về sự tồn tại nghiệm của bài toán sau:
+%     \\\textit{Dạng 2 số : } 
+%     \\\textit{Dạng N số : }Cho 2 bộ N số nguyên $a_{1},a_{2},...,a_{n}$ và $(n_{1},n_{2},...,n_{N})$. Tìm số nguyên $x$ thoả mãn :
+%   \begin{center}
+% $\left\{
+%     \begin{matrix}
+%     x \equiv a_{1}\ (mod\ n_{1}\ ) \\
+%     x \equiv a_{2}\ (mod\ n_{2}\ ) \\
+%     ... \\
+%     x \equiv a_{N}\ (mod\ n_{N}\ ).
+%     \end{matrix}
+% \right.$
+% \end{center}
+% \ei 
+% \end{frame}
+
+% \begin{frame}{Định lý thặng dư Trung Hoa}
+% \bi
+%     \item Dạng 2 số : Phương trình có nghiệm khi và chỉ khi \[|a_{1}-a_{2}|\vdots gcd(n_{1},n_{1})\]
+%     \item Chứng minh : 
+%     \\Hệ phương trình tương đương với phương trình Diofant
+%     \[n_{1}(-k_{1})+n_{2}k_{2}=a_{1}-a_{2}\]
+%     \\Áp dụng tính chất sau : Với mọi số nguyên $m,n$ luôn tồn tại 2 số nguyên $a,b$ thoả mãn : $ma+nb=gcd(m,n)$ \\( Chứng minh tính bằng cách quy về $gcd(m,n)=1$ và sử dụng hệ thặng dư đày đủ $n.n'$ với $n'\in {1,2,...,m-1}$)
+% \ei 
+% \end{frame}
+
+% \begin{frame}{Định lý thặng dư Trung Hoa}
+% \bi
+%     \item Dạng n số : Quy nạp từ dạng 2 số
+%     \item Đăc biệt : 
+%     \\ Khi các số $n_{i}$ đôi một nguyên tố cùng nhau thì hệ phương trình luôn có nghiệm
+% \ei 
+% \end{frame}
+
+% \begin{frame}{Thuật toán Sàng Eratosthenes}
+% \bi
+%     \item Nguồn gốc
+%     \\Ban đầu, nhà toán học Eratosthenes sau khi tìm ra thuật toán, đã lấy lá cọ và ghi tất cả các số từ 2 cho đến 100. Ông đã chọc thủng các hợp số và giữ nguyên các số nguyên tố. Bảng số nguyên tố còn lại trông rất giống một cái sàng. Do đó, nó có tên là sàng Eratosthenes
+%     \begin{center}
+%         \includegraphics[scale=0.65]{Slide/eratosthenes.png}
+%     \end{center}
+% \ei
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+% Pari và Arya chơi một trò chơi Tìm phần dư.
+% \\Pari chọn 2 số nguyên dương $x$ và $k$ bất kỳ và cho Arya biết số $k$. Arya cần tìm giá trị của $x\ mod\ k$ biết rằng, cho trước $n$ số nguyên dương $c_{1},\ c_{2},\ ...,\ c_{n}$, và Pari sẽ phải cho Arya biết giá trị của $x\ mod\ c_{i}$ nếu Arya muốn. 
+% \\Yêu cầu : Với số $x$ bất kỳ, hỏi Arya có thể tìm được $x\ mod\ k$ không ?
+% \bi
+% \item \textbf{Input}
+% \\Dòng đầu chứa số nguyên $n$ và $k$ ($1\leq n,k \leq 1000000)$
+% \\Dòng tiếp theo chứa $n$ số nguyên $c_{1},\ c_{2},\ ...,\ c_{n}$
+% $(1\leq c_{i}\leq 1000000\ \forall i \in \overline{1,n})$
+% \item \textbf{Output}
+% \\In ra "Yes" nếu Arya có chiến thuật thắng, ngược lại, in ra "No" 
+% \ei
+
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+% \bi
+% \item Ví dụ
+% \begin{center}
+%     \includegraphics[scale=0.5]{Slide/exampletest.png}
+% \end{center}
+% \item \textbf{Giới hạn}
+% \\Thời gian : 1s
+% \\Bộ nhớ : 256MB
+% \ei
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+% \bi
+% \item pseudo-code
+% \begin{center}
+%     \includegraphics[scale=0.5]{Slide/pseudo-main.png}
+% \end{center}
+% \ei
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+% \bi
+% \item Tính đúng đắn của giải thuật
+% \\Giải thuật là đúng nếu $lcm(c_{1},c_{2},\ ...,\ c_{n})\vdots\ k$ thì có thể tìm được $x(mod\ k)$, ngược lại thì không thể tìm được.
+
+% \begin{center}
+%     $\left\{ 
+%     \begin{matrix}
+%     x \equiv\ r_{1}\ (mod\ c_{1})\\
+%     x \equiv\ r_{2}\ (mod\ c_{2})\\ 
+%     ... \\
+%     x \equiv\ r_{n}\ (mod\ c_{n})\\
+%     \end{matrix}
+%     \right.$
+% \end{center}
+% Chứng minh theo 2 chiều
+% \\$\bullet$ Nếu $lcm\vdots\ k$ thì tìm được giá trị $x\ mod\ k$
+% \\$X$ bất kỳ thoả mãn (*) thì $X\equiv x\ (mod\ k )$(định lý thặng dư Trung Hoa, có $X-x\vdots\ lcm$, mà $lcm\vdots\ k$).
+% \\$\bullet$ Ngược lại, để biết được $x\ mod\ k\ \Rightarrow$  $lcm\vdots\ k$.
+
+% \ei
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+
+% \bi
+% \item Tính đúng đắn của giải thuật
+% \\Giải thuật là đúng nếu $lcm(c_{1},c_{2},\ ...,\ c_{n})\vdots\ k$ thì có thể tìm được $x(mod\ k)$, ngược lại thì không thể tìm được.
+% \\$\bullet$ Nếu $lcm\vdots\ k$ thì tìm được giá trị $x\ mod\ k$
+% \\$\bullet$ Ngược lại, để biết được $x\ mod\ k\ \Rightarrow \ lcm\vdots\ k$.
+% \\Mọi nghiệm của phương trình (*) phải có cùng số dư khi chia cho $k$. $A,\ B$, có dạng :
+% \begin{center}
+%     $\left\{
+%     \begin{matrix}
+%     A = lcm*a + l\\
+%     B = lcm*b + l.
+%     \end{matrix}
+%     \right.$
+% \end{center}
+% với $a,l \in \mathds{Z}$.
+% Vì $A\equiv B\ (mod\ k)$ nên $lcm(a-b)\vdots\ k$, có thể chọn $a, b$ sao cho $gcd((a-b),k)=1$, khi đó suy ra $lcm\vdots\ k$.
+% \ei
+
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+
+% \lstinputlisting[language=C++]{prime_factorization.cpp}
+
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+
+% \lstinputlisting[language=C++]{sieve_of_eratosthenes.cpp}
+
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+
+% \lstinputlisting[language=C++]{is_divide.cpp}
+
+% \end{frame}
+
+% \begin{frame}{Đánh giá giải thuật}
+%     \bi
+%     \item Sàng Eratosthenes $O(Nlog(log(N)))$
+%     \item Phân tích ra thừa số nguyên tố $O(logN)$
+%     \item Kiểm tra tính chia hết $O(N)$
+%     \item Toàn bộ giải thuật $O(Nlog(log(N)))$
+%     \ei
+% \end{frame}
+
+% \begin{frame}{Bài toán RemainderGame}
+% \bi
+% \item Chạy trên themis
+% \begin{center}
+%     \includegraphics[scale=0.37]{Themis.png}
+% \end{center}
+% \item Chạy trên Codeforce
+% \ei
+
+% \end{frame}
+% \begin{frame}{Bài toán RemainderGame}
+% \bi
+% \item Chạy trên themis
+% \item Chạy trên Codeforce
+% \begin{center}
+%     \includegraphics[scale=0.30]{Statuscodeforce.png}
+% \end{center}
+% \ei
+% \end{frame}
+
+% \begin{frame}{Mở rộng bài toán}
+%     Bài toán ban đầu yêu cầu trả lời câu hỏi có thể xác định được $x\mod k$ hay không, tuy nhiên ta có thể nhìn nhận vấn đề theo 1 cách khác như sau. Thay vì trả lời câu hỏi có tìm được $x(mod\ k)$ hay không, câu hỏi đặt ra là với 1 số $x$ thoả mãn : 
+% \begin{center}
+%     $\left\{
+%     \begin{matrix}
+%     x\equiv a_{1}\ (mod\ n_{1})\\
+%     x\equiv a_{2}\ (mod\ n_{2})\\
+%     ...\\
+%     x\equiv a_{N}\ (mod\ n_{N})
+%     \end{matrix}
+%     \right.$
+% \end{center}
+% Hãy tìm giá trị nhỏ nhất của $x(mod\ k)$
+% \end{frame}
+
+% \begin{frame}{Mở rộng}
+%     Sử dụng thuật toán tìm nghiệm cuả hệ thặng dư Trung Hoa để tìm nghiệm của phương trình trên $\rightarrow X(mod\ lcm(n_{1},n_{2},\ ...,n_{N}))\rightarrow $ tìm $y$ sao cho hệ phương trình nghiệm nguyên sau có nghiệm:
+% \begin{center}
+%     $\left\{
+%     \begin{matrix}
+%     x\equiv X\ (mod\ lcm(n_{1},n_{2},\ ...,n_{N}))\\
+%     x\equiv a\ (mod\ k)
+%     \end{matrix}
+%     \right.$
+% \end{center}
+% \ \ \ Giả sử tìm được $X$ ( thuật toán Garner có độ phức tạp là $O(N^{2})$ trong trường hợp các số $n_{i}$ đôi một nguyên tố cùng nhau). 
+% \\ \ \ \ Tính $d=gcd(lcm(n_{1},n_{2},\ ...,n_{N}), k)$. Vì $lcm(n_{1},n_{2},\ ...,n_{N})$ có thể rất lớn $\rightarrow $ phân tích $lcm(n_{1},n_{2},\ ...,n_{N})$ và $k$ ra thành tích các thừa số nguyên tố r tính $d$ theo định nghĩa.$\rightarrow O(Nlog(log(N)))$.
+% \\ \ \ \ Duyệt $a$ từ $1$ đến $k$, ngay khi tìm được $a$ thoả mãn $|a-X| \vdots d$ thì dừng và đây chính là giá trị cần tìm.$\rightarrow O(N)$ ( vì $k\leq N$ )
+% \\\indent Như vậy, việc thay đổi yêu cầu đề bài đã làm cho bài toán khó giải hơn, giải thuật có độ phức tạp từ $O(Nlog(log(N)))$ thành $O(N^{2})$
+% \end{frame}
+\end{document}

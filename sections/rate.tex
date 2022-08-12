@@ -1,0 +1,36 @@
+\begin{frame}{Definition of rate}
+    Recall $N(k,s) = \ell(k,s)+k-1$. Given $k,s$:
+    \begin{itemize}
+        \item Let $\bfx_{k,s}$: a $(k,s)$-RdB sequence. The (information) rate of $\bfx_{k,s}$:
+        \begin{align}
+            R_{\bfx_{k,s}} = \dfrac{\log\left(\card{\bfx_{k,s}}\right)}{k}
+        \end{align}
+        \pause
+        \item Maximal rate of $(k,s)$-RdB sequences:
+        \begin{align}
+            R_{k,s} = \dfrac{\log(N(k,s))}{k}
+        \end{align}
+        \pause
+        \item  Maximal asymptotic rate of $(k,s)$-RdB sequences:
+        \begin{align}
+            R_{s} = \lim_{n\to\infty}\dfrac{\log(N(k,s))}{k}
+        \end{align}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Maximal Asymptotic Rate}
+    \begin{theorem}
+        \centering $R_{1}= 0.6942$
+    \end{theorem}
+    which is larger than $0.5$, rate of HdB sequences.
+    \begin{theorem}
+        \begin{center}
+            $R_{s} = \log(\card{\omega})$
+        \end{center} 
+        
+        where $\omega$ is the root of equation: $x^{s+1}-x^{s}-\ldots-x-1=0$ such that $\card{\omega}$ is the largest.
+    \end{theorem}
+    \textit{Proof}: Approximation: $\card{W(k,s)}\approx a\card{\omega}^{n}$. Hence: 
+    $$N(k,s)\approx \card{\omega}^{k-s-2}\left(\sum_{i=0}^{s}a(i+1)\card{w}^{s-i}+\dfrac{s+k-1}{\card{w}^{k-s-2}}\right)$$
+    \[\Rightarrow R_{s} = \lim_{n\to\infty}\dfrac{(k-s-2)\log(\card{\omega})}{k} = \log(\card{\omega}).\]
+\end{frame}

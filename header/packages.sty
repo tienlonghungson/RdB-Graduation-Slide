@@ -1,0 +1,232 @@
+% Copyright 2015 by Do Phan Thuan, Nguyen Tien Long
+
+% Loại mẫu slice
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+% \usetheme{Boadilla}
+\usetheme{Madrid}
+%\usetheme{CambridgeUS}
+%\usetheme{Hannover}
+
+% Ký tự tiếng Việt
+% \usepackage[utf8]{eng}
+% \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+% Công thức toán
+\usepackage{amsmath,amsthm,amssymb,epsfig,dsfont}
+% Chèn ảnh
+\usepackage{graphicx}
+% Chèn đường dẫn 
+\usepackage{url}
+
+% Vẽ đồ thị
+\usepackage{pgfplots}
+
+\usepackage{comment}
+
+% Insert code
+% \usepackage{algorithm}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmicx}
+\usepackage{listings}
+\lstset{language=C++,
+   %keywords={break,case,catch,continue,else,elseif,end,for,function,
+   %   global,if,otherwise,persistent,return,switch,try,while},
+   basicstyle=\ttfamily,
+   keywordstyle=\color{blue},
+   commentstyle=\color{red},
+   stringstyle=\color{dkgreen},
+   frame=lrtb,
+   %frame=5 pt,
+   numbers=left,
+   numberstyle=\tiny\color{gray},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false}
+% Tô mầu cho bảng
+\usepackage{colortbl}
+
+
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+  
+\definecolor{Xanh}{rgb}{0,0.5,1}
+\definecolor{Do}{rgb}{1,0.25,0}
+\definecolor{Vang}{rgb}{1,1,0}
+\definecolor{Datroi}{rgb}{0,0,1}
+% Vẽ hình
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+% Vẽ mạch điện
+\usepackage[siunitx,european resistors]{circuitikz}
+
+% multirow
+\usepackage{multirow}
+
+\usepackage{pbox}
+
+% Tô mầu cho bảng
+\usepackage{colortbl}
+\definecolor{Xanh}{rgb}{0,0.5,1}
+\definecolor{Do}{rgb}{1,0.25,0}
+\definecolor{Vang}{rgb}{1,1,0}
+\definecolor{Datroi}{rgb}{0,0,1}
+
+% Xác định khoảng dãn trong bảng
+\renewcommand\arraystretch{1.2}
+
+
+\newcommand{\subt}[1]{{\footnotesize \color{subtitle} {#1}}}
+
+% named colors
+\definecolor{offwhite}{RGB}{249,242,215}
+\definecolor{foreground}{RGB}{255,255,255}
+\definecolor{background}{RGB}{24,24,24}
+\definecolor{title}{RGB}{107,174,214}
+\definecolor{gray}{RGB}{155,155,155}
+\definecolor{subtitle}{RGB}{102,255,204}
+\definecolor{hilight}{RGB}{22,155,104}
+\definecolor{vhilight}{RGB}{255,111,207}
+\definecolor{lolight}{RGB}{155,155,155}
+%\definecolor{green}{RGB}{125,250,125}
+
+% Minted
+%\usepackage{minted}
+%\usemintedstyle{monokai}
+%\newminted{cpp}{fontsize=\footnotesize}
+
+% Graph styles
+\tikzstyle{vertex}=[circle,fill=black!50,minimum size=15pt,inner sep=0pt, font=\small]
+\tikzstyle{selected vertex} = [vertex, fill=vhilight]
+\tikzstyle{selected2 vertex} = [vertex, fill=hilight!50, text=black]
+\tikzstyle{vertex1} = [vertex, fill=red]
+\tikzstyle{vertex2} = [vertex, fill=blue]
+\tikzstyle{vertex3} = [vertex, fill=green, text=black]
+\tikzstyle{vertex4} = [vertex, fill=yellow, text=black]
+\tikzstyle{vertex5} = [vertex, fill=pink, text=black]
+\tikzstyle{vertex6} = [vertex, fill=purple]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{dedge} = [draw,thick,->]
+\tikzstyle{weight} = [font=\scriptsize,pos=0.5]
+\tikzstyle{selected edge} = [draw,line width=2pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+
+%gets rid of bottom navigation bars
+\setbeamertemplate{footline}[frame number]{}
+
+% show table of content and highlighted the current section at the head of each section
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% numbering caption 
+\setbeamertemplate{caption}[numbered]
+
+\setbeamercovered{transparent}
+% newcommand 
+
+\newcommand{\bfa}{{\boldsymbol a}}
+\newcommand{\bfb}{{\boldsymbol b}}
+\newcommand{\bfc}{{\boldsymbol c}}
+\newcommand{\bfd}{{\boldsymbol d}}
+\newcommand{\bfe}{{\boldsymbol e}}
+\newcommand{\bff}{{\boldsymbol f}}
+\newcommand{\bfg}{{\boldsymbol g}}
+\newcommand{\bfh}{{\boldsymbol h}}
+\newcommand{\bfi}{{\boldsymbol i}}
+\newcommand{\bfj}{{\boldsymbol j}}
+\newcommand{\bfk}{{\boldsymbol k}}
+\newcommand{\bfl}{{\boldsymbol l}}
+\newcommand{\bfm}{{\boldsymbol m}}
+\newcommand{\bfn}{{\boldsymbol n}}
+\newcommand{\bfo}{{\boldsymbol o}}
+\newcommand{\bfp}{{\boldsymbol p}}
+\newcommand{\bfq}{{\boldsymbol q}}
+\newcommand{\bfr}{{\boldsymbol r}}
+\newcommand{\bfs}{{\boldsymbol s}}
+\newcommand{\bft}{{\boldsymbol t}}
+\newcommand{\bfu}{{\boldsymbol u}}
+\newcommand{\bfv}{{\boldsymbol v}}
+\newcommand{\bfw}{{\boldsymbol w}}
+\newcommand{\bfx}{{\boldsymbol x}}
+\newcommand{\bfy}{{\boldsymbol y}}
+\newcommand{\bfz}{{\boldsymbol z}}
+
+\usepackage{xcolor} % use color box
+\usepackage[style=numeric-comp, backend=biber, citetracker=true,sorting=none]{biblatex}
+\addbibresource{references.bib}
+%\bibliographystyle{ieeetr}
+
+\newcommand{\card}[1]{\left \lvert #1 \right \rvert}
+\setbeamertemplate{theorems}[numbered]
+
+%=======================Cite Config=================
+
+\DeclareCiteCommand{\footfullcitetext}
+  [\let\thefootnote\relax\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\mkbibbrackets{\thefield{labelnumber}}%
+   \addnbspace%
+   \usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\makeatletter
+\let\cbx@citehook=\empty
+\newtoggle{cbx@blockcite}
+
+\renewcommand{\@makefntext}[1]{%
+  \noindent\normalfont\@thefnmark#1}
+
+\DeclareCiteCommand{\sfcite}[\cbx@superscript]%
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}{}{\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}{}{\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \ifciteseen
+     {\ifnumequal{\value{page}}{\csuse{cbx@page@\thefield{entrykey}}}
+       {}
+       {\ifnumequal{\value{framenumber}}{\csuse{cbx@frame@\thefield{entrykey}}}
+          {\usebibmacro{sfcite}}
+          {}}}
+     {\usebibmacro{sfcite}}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}}
+
+\newbibmacro*{sfcite}{%
+  \csnumgdef{cbx@page@\thefield{entrykey}}{\value{page}}%
+  \csnumgdef{cbx@frame@\thefield{entrykey}}{\value{framenumber}}%
+  \xappto\cbx@citehook{%
+    \noexpand\footfullcitetext{\thefield{entrykey}}}}
+
+\newrobustcmd*{\cbx@superscript}[1]{%
+  \mkbibsuperscript{\mkbibbrackets{#1}}%
+  \iftoggle{cbx@blockcite}
+    {}
+    {\cbx@citehook%
+     \global\let\cbx@citehook=\empty}}
+
+\BeforeBeginEnvironment{block}{\global\toggletrue{cbx@blockcite}}
+
+\def\metabox#1{\edef\theprevdepth{\the\prevdepth}\nointerlineskip
+  \vbox to0pt{#1\vss}\prevdepth=\theprevdepth}
+
+\AfterEndEnvironment{block}
+  {\metabox{%
+     \global\togglefalse{cbx@blockcite}%
+     \cbx@citehook%
+     \global\let\cbx@citehook=\empty}}
