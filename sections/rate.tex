@@ -13,14 +13,14 @@
         \pause
         \item  Maximal asymptotic rate of $(k,s)$-RdB sequences:
         \begin{align}
-            R_{s} = \lim_{n\to\infty}\dfrac{\log(N(k,s))}{k}
+            R_{s} = \lim_{k\to\infty}\dfrac{\log(N(k,s))}{k}
         \end{align}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Maximal Asymptotic Rate}
     \begin{theorem}
-        \centering $R_{1}= 0.6942$
+        \centering $R_{1}= \log\left(\dfrac{1+\sqrt{5}}{2}\right)=0.6942$
     \end{theorem}
     which is larger than $0.5$, rate of HdB sequences.
     \begin{theorem}
@@ -31,6 +31,11 @@
         where $\omega$ is the root of equation: $x^{s+1}-x^{s}-\ldots-x-1=0$ such that $\card{\omega}$ is the largest.
     \end{theorem}
     \textit{Proof}: Approximation: $\card{W(k,s)}\approx a\card{\omega}^{n}$. Hence: 
+    \begin{overprint}
+    \onslide<1>
     $$N(k,s)\approx \card{\omega}^{k-s-2}\left(\sum_{i=0}^{s}a(i+1)\card{w}^{s-i}+\dfrac{s+k-1}{\card{w}^{k-s-2}}\right)$$
+    \onslide<2>
     \[\Rightarrow R_{s} = \lim_{n\to\infty}\dfrac{(k-s-2)\log(\card{\omega})}{k} = \log(\card{\omega}).\]
+    \end{overprint}
+    
 \end{frame}

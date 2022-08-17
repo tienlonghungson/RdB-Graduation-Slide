@@ -1,61 +1,39 @@
-% \begin{frame}{Satellite Quantum Key Distribution (QKD)}
-%     \visible<1->{
-%         Commercial QKD: deployed over optical fibre. But $\mathrm{range}< 1000 \mathrm{km}$
-%     }
-    
-%     \visible<2->{
-%         $\Rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links. Challenges:
-%         \begin{itemize}
-%             \item High channel losses.
-%             \item Rapid relative motion between the transmitter and receiver.
-%         \end{itemize}
-%     }
-    
-%     \visible<3->{
-%         $\Rightarrow$ A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
-%         \begin{figure}
-%             \centering
-%             \includegraphics[scale=.3]{Images/Motivation/SatteliteQKD.png}
-%             \caption{High-level satellite Quantum Key Distribution schematic.}
-%             \label{fig:satelliteQKD}
-%         \end{figure}
-%     }
-% \end{frame}
-
 \begin{frame}{Satellite Quantum Key Distribution (QKD)}
-    Commercial QKD: deployed over optical fibre.
+    \visible<1->{
+        Quantum Key Distribution.
+        % \begin{itemize}
+        %     \item Cryptographic protocol involving components of quantum mechanics.
+        %     \item Enables two parties to produce a shared random secret key known only to them.
+        % \end{itemize}
+    }
+    
     \begin{overprint}
         \onslide<1>
-        But: $$\mathrm{range}< 1000 \mathrm{km}$$
-        \onslide<2>
-        But: $$\mathrm{range}< 1000 \mathrm{km}$$
-        $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
-        
-        \onslide<3> 
-        But: $$\mathrm{range}< 1000 \mathrm{km}$$
-        $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
-        
-        Challenges:
         \begin{itemize}
-            \item High channel losses.
-            \item Rapid relative motion between the transmitter and receiver.
+            \item Cryptographic protocol involving components of quantum mechanics.
+            \item Enables two parties to produce a shared random secret key known only to them.
         \end{itemize}
-        \onslide<4-> 
-        % \visible<4->{
-        $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
+        \onslide<2->
+        Satellite QKD: share random key between satellite and ground station.
+        \visible<3->{
         
-        $\rightarrow$ A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
+        A classical channel is used along to synchronise quantum channel~\sfcite{zhang2021timing,khader2018time}.
         \begin{figure}
             \centering
             \includegraphics[scale=.3]{Images/Motivation/SatteliteQKD.png}
-            \caption{High-level satellite Quantum Key Distribution schematic.}
+            \caption{High-level satellite Quantum Key Distribution schematic~\sfcite{zhang2021timing}.}
             \label{fig:satelliteQKD}
         \end{figure}
-        % }
+    }    
     \end{overprint}
     
+    % \visible<2->{
+    %     Satellite QKD: share random key between satellite and ground station
+        
+    % }
+    
     % \visible<3->{
-    %     $\Rightarrow$ A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
+    %     A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
     %     \begin{figure}
     %         \centering
     %         \includegraphics[scale=.3]{Images/Motivation/SatteliteQKD.png}
@@ -64,6 +42,49 @@
     %     \end{figure}
     % }
 \end{frame}
+
+% \begin{frame}{Satellite Quantum Key Distribution (QKD)}
+%     Commercial QKD: deployed over optical fibre.
+%     \begin{overprint}
+%         \onslide<1>
+%         But: $$\mathrm{range}< 1000 \mathrm{km}$$
+%         \onslide<2>
+%         But: $$\mathrm{range}< 1000 \mathrm{km}$$
+%         $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
+        
+%         \onslide<3> 
+%         But: $$\mathrm{range}< 1000 \mathrm{km}$$
+%         $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
+        
+%         Challenges:
+%         \begin{itemize}
+%             \item High channel losses.
+%             \item Rapid relative motion between the transmitter and receiver.
+%         \end{itemize}
+%         \onslide<4-> 
+%         % \visible<4->{
+%         $\rightarrow$ Satellite QKD: alternative method to establishing intercontinental secure communication links.
+        
+%         $\rightarrow$ A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
+%         \begin{figure}
+%             \centering
+%             \includegraphics[scale=.3]{Images/Motivation/SatteliteQKD.png}
+%             \caption{High-level satellite Quantum Key Distribution schematic.}
+%             \label{fig:satelliteQKD}
+%         \end{figure}
+%         % }
+%     \end{overprint}
+    
+%     % \visible<3->{
+%     %     $\Rightarrow$ A classical channel is used along to synchronise quantum channel~\sfcite{duan2021survey,khader2018time}.
+%     %     \begin{figure}
+%     %         \centering
+%     %         \includegraphics[scale=.3]{Images/Motivation/SatteliteQKD.png}
+%     %         \caption{High-level satellite Quantum Key Distribution schematic.}
+%     %         \label{fig:satelliteQKD}
+%     %     \end{figure}
+%     % }
+% \end{frame}
 
 
 \begin{frame}{Related Work}
@@ -133,7 +154,7 @@
                 \begin{alertblock}{Drawback}
                     \begin{itemize}
                         \item $\mathrm{Rate}=0.5$.
-                        \item Encode: LSFR (prerequisite: suitable primitive polynomial).
+                        \item Encode: LFSR (prerequisite: suitable primitive polynomial).
                         \item Decode: use look-up table (exponential complexity).
                     \end{itemize}
                 \end{alertblock}
@@ -147,22 +168,18 @@
         \begin{itemize}
             \item Can be encoded and decoded efficiently.
             \item Can replace HdB sequence: higher rate and maximal asymptotic rate, more general and adaptive.
-            \item Potential application: DNA storage.
         \end{itemize}
     \end{block}
-    \begin{block}{Determine the maixmal length of RdB}
+    \begin{block}{Determine the maximal length of RdB}
         \begin{itemize}
             \item Explicit formula.
         \end{itemize}
     \end{block}
-    \begin{block}{Encoding Algorithm}
+    \begin{block}{Encoding and Decoding Algorithm}
         \begin{itemize}
-            \item Constant amortized time per symbol.
-        \end{itemize}
-    \end{block}
-    \begin{block}{Decoding Algorithm}
-        \begin{itemize}
-            \item Sub-linear time with respect to the length of the sequence.
+            \item Encoder: Constant amortized time per symbol.
+            \item Decoder: Sub-linear time with respect to the length of the sequence.
         \end{itemize}
     \end{block}
 \end{frame} 
+

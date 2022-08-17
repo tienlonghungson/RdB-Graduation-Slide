@@ -78,41 +78,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{De Bruijn Code (Positioning Code)}
-    \begin{columns}
-        \begin{column}{0.65\textwidth}
-            \begin{enumerate}
-                \item De Bruijn graph of order $k$, $G_{k}$:
-                \begin{itemize}
-                    \item Each vertex is labeled by a sequence of length $k-1$.
-                    \item A directed edge from $\bfx = \left[x_{0}x_{1}\ldots x_{k-2}\right]$ to $\bfy=\left[y_{0}y_{1}\ldots y_{k-2}\right]$ $\Leftrightarrow\ x_{1}x_{2}\ldots x_{k-2}=y_{0}y_{1}\ldots y_{k-3}$. 
-                \end{itemize}
-                \item De Bruijn sequence:
-                \begin{itemize}
-                    \item A cyclic binary de Bruijn of order $k$ is a length $2^{k}$ sequence such that each length $k$ string appears exactly once.
-                    \item Longest simple path in de Bruijn graph (Eulerian cycle) $\equiv$ de Bruijn sequence.
-                \end{itemize}
-                
-                \item Applications:
-                \begin{itemize}
-                    \item Cryptography.
-                    \item Interconnection networks.
-                    \item VLSI testing.
-                    \item Combine with biology: DNA storage.
-                \end{itemize}
-            \end{enumerate}
-        \end{column}
-        
-        \begin{column}{0.35\textwidth}
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.8\textwidth]{Images/deBruijnOrder4.png}
-                \caption{de Bruijn graph of order $4$.}
-                \label{fig:dB4}
-            \end{figure}
-        \end{column}
-    \end{columns}
-\end{frame}
+
 
 \begin{frame}{What do we concern about a code?}
     \begin{block}<1>{Rate}
